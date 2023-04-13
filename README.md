@@ -7,15 +7,29 @@ Task List:
 
  - Add more tasks as the development continues.
  
- - Do the skeleton for the HTML.
+ - Do the skeleton for the HTML. (DONE)
 
- - Draw a basic layout of the website.
+ - Draw a basic layout of the website. (DONE)
 
- - Add some basic HTML to make it similar to the wanted layout.
+ - Add some basic HTML to make it similar to the wanted layout. (DONE)
 
  - Add some CSS to make it similar to the wanted layout.
 
  - Divide the CSS and HTML code plan into smaller tasks.
+
+ - Find a nice font.
+
+ - Find a white palette.
+
+ - Change the input for actual input.
+
+ - Add the Switch to the menu.
+
+ - Add the button to the menu.
+
+ - Write some dummie text for the book list.
+
+ - Make the transparent effect on the information panel better looking.
 
  - Make a function that takes the user input and stores it on a variable.
 

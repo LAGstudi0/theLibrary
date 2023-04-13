@@ -1,0 +1,72 @@
+html {
+    /* Base styles go here */
+    font: 14px/1.5 Arial, sans-serif;
+   }
+   
+body {
+    padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+   }
+
+header, .menu, .content, footer {
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+
+}
+
+.menu-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.menu-filter {
+    display: flex;
+    gap: 20px;
+
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: antiquewhite;
+}
+
+.content-books {
+    grid-column: 1/5;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.book {
+    display: flex;
+    justify-content: space-around;
+}
+
+.content-status {
+    width: 20vw;
+    height: 25vh;
+    background-color: gray;
+    border-radius: 6px;
+    opacity: 0.3;
+    box-shadow: 10px 10px 12px -4px rgba(110,110,110,0.71);
+}
+
+.status-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+li {
+    list-style: none;
+}
+
+footer {
+    text-align: center;
+}
+
+
