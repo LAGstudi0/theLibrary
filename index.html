@@ -21,41 +21,51 @@
             </div>
             <div class="menu-left">
                 <div class="menu-toggle">switch</div>
-                <div class="menu-add-book">button</div>
+                <div class="menu-add-book">
+                    <button data-modal-target="#modal">Add Book</button>
+                </div>
             </div>
         </div>
     </header>
-
+<!-- modal -->
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Add Comic</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form action="modal-test" method="get">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author">
+                <label for="editorial">Editorial:</label>
+                <input type="text" id="editorial" name="editorial">
+                <label for="read">Read?</label>
+                <input type="text" name="read" id="read">
+                <button>Add Comic!</button>
+            </form>
+        </div>
+    </div>
+<!-- modal -->
     <div class="content">
-        <div class="content-books">
-            <div class="book">
-                <span>Title</span><span>Author</span><span>Editorial</span><span>Read?</span>
-            </div>
-            <div class="book">
-                <span>Title</span><span>Author</span><span>Editorial</span><span>Read?</span>
-            </div>
-            <div class="book">
-                <span>Title</span><span>Author</span><span>Editorial</span><span>Read?</span>
-            </div>
-            <div class="book">
-                <span>Title</span><span>Author</span><span>Editorial</span><span>Read?</span>
-            </div>
+        <div id="content-books">
         </div>
         <div class="content-status">
-            <h2>Status</h2>
-            <div class="status-info" style="color: white;">
+            <h2 class="status-title">Status</h2>
+            <div class="status-info">
                 <div class="info-left">
                     <ul>
-                        <li>Read</li>
-                        <li>Reading</li>
-                        <li>Not Read</li>
+                        <li style="color: rgb(0, 245, 0);">Read</li>
+                        <li style="color: yellow;">Reading</li>
+                        <li style="color: red;">Not Read</li>
                     </ul>
                 </div>
                 <div class="info-right">
                     <ul>
-                        <li>90</li>
-                        <li>6</li>
-                        <li>320</li>
+                        <li style="color: rgb(0, 245, 0);">90</li>
+                        <li style="color: yellow;">6</li>
+                        <li style="color: red;">320</li>
                     </ul>
                 </div>
             </div>
@@ -65,5 +75,6 @@
     <footer>
         <span>Paolo Milutinovic Martinez</span>
     </footer>
+    <div id="overlay"></div>
 </body>
 </html>
