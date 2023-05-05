@@ -1,73 +1,49 @@
-const myBooks = [
-    ['Ultimate Spider-man', 'Stan Lee', 'Marvel', 'Read'],
-    ['The Bat-man', 'Bob Keane', 'DC', 'Read'],
-    ['Bat-man Year One', 'Frank Miller', 'DC', 'Read'],
-    ['The arkham knight returns', 'Frank Miller', 'DC', 'Read']
-];
-console.log(myBooks);
-function addBookToLibrary(title, author, editorial, read) {
-    const newBook = [title, author, editorial, read];
-    myBooks.push(newBook);
-}
-addBookToLibrary('a', 'b', 'c', 'd');
-console.log(myBooks);
-const contentBooks = document.querySelector('#content-books');
-for(let i = 0; i < myBooks.length; i++) {
-    const bookInfo = myBooks[i];
-    const table = document.createElement('div');
-    table.classList.add('book');
-    contentBooks.appendChild(table);
-    console.log(bookInfo);
-    for(let a = 0; a < 4; a++) {
-        const info = bookInfo[a];
-        const infoSpan = document.createElement('span');
-        infoSpan.textContent = info;
-        table.appendChild(infoSpan);
-        console.log(info);
+let myLibrary = [];
 
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
+
+function render() {
+    let libraryEl = document.querySelector('#library');
+    libraryEl.innerHTML = '';
+    for(let i = 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
+        let bookEl = document.createElement('div');
+        bookEl.innerHTML = `
+        <div class="card-header">
+    <h3 class="title">${book.title}</h3>
+    <h5 class="author">by ${book.author}</h5>
+</div>
+<div class="card-body">
+    <p>${book.pages} pages</p>
+    <p class="read-status">${book.read ? "Read" : "Not read Yet"}</p>
+</div>`;
+        libraryEl.appendChild(bookEl);
     }
 }
 
-
-
-
-
-
-// functionality for the modal.
-
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const overlay = document.getElementById('overlay');
-
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget);
-        openModal(modal);
-    })
-})
-
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal.active')
-    modals.forEach(modal => {
-        closeModal(modal);
-    })
-})
-
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        closeModal(modal);
-    })
-})
-
-function openModal(modal) {
-    if(modal == null) return;
-    modal.classList.add('active');
-    overlay.classList.add('active');
+function addBookToLibrary() {
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;
+    let read = document.querySelector('#read').checked;
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    render();
 }
 
-function closeModal(modal) {
-    if(modal == null) return;
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-}
+let newBookBtn = document.querySelector('#new-book-btn');
+newBookBtn.addEventListener('click', function() {
+    let newBookForm = document.querySelector('#new-book-form');
+    console.log(newBookForm);
+    newBookForm.style.display = 'block';
+});
+
+document.querySelector('#new-book-form').addEventListener('submit', function() {
+    event.preventDefault();
+    addBookToLibrary();
+});
